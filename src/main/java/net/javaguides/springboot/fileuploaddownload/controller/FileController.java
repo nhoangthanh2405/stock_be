@@ -70,4 +70,8 @@ public class FileController {
     return ResponseEntity.noContent().build();
   }
 
+  @GetMapping("")
+  public String getText() {
+    return "Hello work";
+  }
 }

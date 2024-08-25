@@ -14,7 +14,16 @@ public class RedisConfig {
 
   @Bean
   public RedisConnectionFactory redisConnectionFactory() {
-    RedisStandaloneConfiguration redisConfig = new RedisStandaloneConfiguration("localhost", 6379);
+    // Hard code thông tin kết nối
+    String redisHost = "redis.railway.internal";
+    int redisPort = 6379;
+    String redisPassword = "sizTFULazsZwjLJnzLHYdqyWIoCvBqPp";
+
+    // Cấu hình kết nối Redis
+    RedisStandaloneConfiguration redisConfig = new RedisStandaloneConfiguration();
+    redisConfig.setHostName(redisHost);
+    redisConfig.setPort(redisPort);
+    redisConfig.setPassword(redisPassword.toCharArray()); // Sử dụng toCharArray() cho mật khẩu
 
     JedisClientConfiguration jedisClientConfig = JedisClientConfiguration.builder().build();
     return new JedisConnectionFactory(redisConfig, jedisClientConfig);
