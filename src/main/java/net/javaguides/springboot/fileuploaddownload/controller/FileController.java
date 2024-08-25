@@ -30,7 +30,7 @@ public class FileController {
     @Autowired
     private DatabaseFileService fileStorageService;
 
-    @GetMapping("/upload-file")
+    @PostMapping("/upload-file")
     public ResponseModel uploadFile(@RequestParam("file") MultipartFile file) {
     	DatabaseFile fileName = fileStorageService.storeFile(file);
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -69,6 +69,7 @@ public class FileController {
       fileStorageService.deleteById(id);
     return ResponseEntity.noContent().build();
   }
+
 
   @GetMapping("")
   public String getText() {
