@@ -12,7 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
-        .allowedOrigins("http://localhost:4200")  // Các origin mà bạn muốn cho phép
+        .allowedOrigins("http://localhost:4200",
+            "https://stock-fe-nhoangthanh.vercel.app")  // Các origin mà bạn muốn cho phép
         .allowedMethods("GET", "POST", "PUT", "DELETE")
         .allowedHeaders("*")
         .allowCredentials(true);  // Cho phép sử dụng credentials (cookie, authorization header)
