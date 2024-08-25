@@ -18,7 +18,7 @@ public class StockController {
   @Autowired
   private StockService stockService;
 
-  @PostMapping("")
+  @GetMapping("")
   public ResponseModel createStock(@RequestBody StockRequest stock) {
     return new ResponseModel<Object>(true, stockService.createStock(stock));
   }

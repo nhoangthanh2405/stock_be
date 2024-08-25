@@ -13,6 +13,7 @@ import net.javaguides.springboot.fileuploaddownload.service.Impl.UserService;
 import net.javaguides.springboot.fileuploaddownload.repository.UserRepository;
 import net.javaguides.springboot.fileuploaddownload.shared.CommonFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class AuthController {
   @Autowired
   private UserService userService;
 
-  @PostMapping("/signin")
+  @GetMapping("/signin")
   public ResponseModel authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
     loginRequest.setUsername(loginRequest.getUsername().trim().toLowerCase());
@@ -41,7 +42,7 @@ public class AuthController {
     }
   }
 
-  @PostMapping("/signup")
+  @GetMapping("/signup")
   public ResponseModel registerUser(@Valid @RequestBody SignupRequest signUpRequest) {
 
     signUpRequest.setEmail(signUpRequest.getEmail().trim().toLowerCase());
@@ -58,12 +59,12 @@ public class AuthController {
     return userService.registerUser(signUpRequest);
   }
 
-  @PostMapping("/send-code")
+  @GetMapping("/send-code")
   public ResponseModel sendCode(@Valid @RequestBody SendCodeRequest sendCodeRequest) {
     return new ResponseModel<Object>(true, userService.sendCode(sendCodeRequest));
   }
 
-  @PostMapping("/forgot-password")
+  @GetMapping("/forgot-password")
   public ResponseModel forgotPassword(@Valid @RequestBody ForgotPasswordRequest forgotPasswordRequest) {
     String email = forgotPasswordRequest.getEmail().trim().toLowerCase();
 
@@ -75,7 +76,7 @@ public class AuthController {
     return new ResponseModel<Object>(true, userService.forgotPassword(user, forgotPasswordRequest));
   }
 
-  @PostMapping("/signout")
+  @GetMapping("/signout")
   public ResponseModel signOut(@Valid @RequestBody SignOutRequest SignOutRequest) {
     return new ResponseModel<Object>(true, userService.signOut(SignOutRequest));
   }
