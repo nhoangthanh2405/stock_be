@@ -9,6 +9,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ import net.javaguides.springboot.fileuploaddownload.payload.Response;
 import net.javaguides.springboot.fileuploaddownload.service.Impl.DatabaseFileService;
 
 @RestController
+@CrossOrigin(origins = "https://stock-fe-nhoangthanh-tma.vercel.app") // Thay đổi URL với frontend của bạn
 @RequestMapping("/api")
 public class FileController {
 

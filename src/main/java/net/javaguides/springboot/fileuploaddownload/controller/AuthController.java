@@ -13,6 +13,7 @@ import net.javaguides.springboot.fileuploaddownload.service.Impl.UserService;
 import net.javaguides.springboot.fileuploaddownload.repository.UserRepository;
 import net.javaguides.springboot.fileuploaddownload.shared.CommonFunctions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "https://stock-fe-nhoangthanh-tma.vercel.app") // Thay đổi URL với frontend của bạn
 public class AuthController {
   @Autowired
   UserRepository userRepository;

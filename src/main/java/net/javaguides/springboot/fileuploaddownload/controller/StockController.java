@@ -3,6 +3,7 @@ import net.javaguides.springboot.fileuploaddownload.model.ResponseModel;
 import net.javaguides.springboot.fileuploaddownload.payload.request.StockRequest;
 import net.javaguides.springboot.fileuploaddownload.service.Impl.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "https://stock-fe-nhoangthanh-tma.vercel.app") // Thay đổi URL với frontend của bạn
 @RequestMapping("/api/stock")
 public class StockController {
 
