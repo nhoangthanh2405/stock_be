@@ -19,7 +19,6 @@ public class StockService implements IStockService {
   @Autowired
   private CommonFunctions commonFunctions;
 
-  private String URL_FILE =  "http://localhost:8080/api/files/";
   @Override
   public StockResponse createStock(StockRequest stockRequest) {
     Stock stock = new Stock();
@@ -59,7 +58,7 @@ public class StockService implements IStockService {
     StockResponse stockResponse = new StockResponse(stock);
     List<String> imgs = new ArrayList<>();
     for (String imgIds: CommonFunctions.convertStringToArray(stock.getImg_ids())) {
-      String url = URL_FILE + imgIds;
+      String url = commonFunctions.getUrlFileFromBe() + imgIds;
       imgs.add(url);
     }
     stockResponse.setImg_ids(imgs);

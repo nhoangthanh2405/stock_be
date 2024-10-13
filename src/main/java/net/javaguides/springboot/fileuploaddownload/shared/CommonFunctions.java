@@ -2,6 +2,7 @@ package net.javaguides.springboot.fileuploaddownload.shared;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -17,6 +18,8 @@ import org.springframework.stereotype.Service;
 public class CommonFunctions {
   @Autowired
   private JavaMailSender mailSender;
+
+  private String URL_FILE =  "http://localhost:8080/api/files/";
 
   public void sendEmail(String toEmail, String subjeact, String body) {
     System.out.println("=============CODE========== " +"Email: " + toEmail +" "+ body);
@@ -66,10 +69,15 @@ public class CommonFunctions {
   }
 
   public static List<String> convertStringToArray(String input) {
+    if(input.equals("[]")) return new ArrayList<>();
     // Loại bỏ dấu ngoặc vuông và khoảng trắng
     String cleanedStr = input.replaceAll("[\\[\\]\\s]", "");
 
     // Chia chuỗi thành mảng các phần tử
     return Arrays.asList(cleanedStr.split(","));
+  }
+
+  public String getUrlFileFromBe(){
+    return this.URL_FILE;
   }
 }

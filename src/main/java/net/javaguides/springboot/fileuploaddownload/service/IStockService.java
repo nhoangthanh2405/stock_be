@@ -2,6 +2,7 @@ package net.javaguides.springboot.fileuploaddownload.service;
 
 import java.util.List;
 import net.javaguides.springboot.fileuploaddownload.model.Stock;
+import net.javaguides.springboot.fileuploaddownload.payload.request.ChartIndicatorRequest;
 import net.javaguides.springboot.fileuploaddownload.payload.request.StockRequest;
 import net.javaguides.springboot.fileuploaddownload.payload.response.StockResponse;
 import org.springframework.web.bind.annotation.PathVariable;

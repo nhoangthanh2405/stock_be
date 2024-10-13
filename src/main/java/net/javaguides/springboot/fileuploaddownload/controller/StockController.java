@@ -1,5 +1,6 @@
 package net.javaguides.springboot.fileuploaddownload.controller;
 import net.javaguides.springboot.fileuploaddownload.model.ResponseModel;
+import net.javaguides.springboot.fileuploaddownload.payload.request.ChartIndicatorRequest;
 import net.javaguides.springboot.fileuploaddownload.payload.request.StockRequest;
 import net.javaguides.springboot.fileuploaddownload.service.Impl.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,4 +40,5 @@ public class StockController {
   public ResponseModel getStocksByUserId(@PathVariable Long userId) {
     return new ResponseModel<Object>(true, stockService.getStocksByUserId(userId));
   }
+
 }
